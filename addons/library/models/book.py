@@ -11,6 +11,11 @@ class book(models.Model):
     type = fields.Selection([('fantasia','Novela fantástica'), 
                              ('historia', 'Ensayo historico')],
                             'Genero')
+    author_ids =  fields.Many2many(
+        string='Autores',
+        comodel_name='library.author',
+    )
+    
     
     
     
