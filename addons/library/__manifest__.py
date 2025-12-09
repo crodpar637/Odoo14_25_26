@@ -21,6 +21,11 @@
     # any module necessary for this one to work correctly
     'depends': ['base'],
 
+    'assets': {
+        'web.assets_backend': [
+            'library/static/src/css/styles.css',
+        ],
+    },
     # always loaded
     'data': [
         'security/ir.model.access.csv',

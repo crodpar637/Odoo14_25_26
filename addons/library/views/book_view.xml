@@ -1,6 +1,41 @@
 <odoo>
     <data>
+        <record model="ir.ui.view" id="library_book_tree">
+            <field name="name">Libros</field>
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="title"/>
+                    <field name="image" widget="image" class="image_small"/>
+                    <field name="isbn"/>
+                    <field name="npage" />
+                    <field name="type" />
+                    <field name="author_ids"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="library_book_form">
+            <field name="name">Libros</field>
+            <field name="model">library.book</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="title"/>
+                            <field name="image" widget="image" class="image_small"/>
+                        </group>
+                        <group>
+                            <field name="isbn"/>
+                            <field name="npage" />
+                            <field name="type" />
+                        </group>
 
+                        <field name="author_ids"/>
+
+                    </group>
+                </form>
+            </field>
+        </record>
         <record model="ir.actions.act_window" id="library.book_action_window">
             <field name="name">Libros</field>
             <field name="res_model">library.book</field>
