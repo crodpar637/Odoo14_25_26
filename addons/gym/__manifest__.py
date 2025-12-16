@@ -11,6 +11,7 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/classes_views.xml',
+        'views/users_views.xml',
         'views/menu_views.xml'
     ],
     'demo': [

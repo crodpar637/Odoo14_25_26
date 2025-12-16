@@ -4,13 +4,15 @@ class Classes(models.Model):
     _name = 'gym.classes'
     _description = 'Gym Classes'
     
-    name = fields.Char(string="Title", required=True, help="name of the gym")
-    description = fields.Text()
-    start = fields.Datetime('Starts',required=True, autodate = True)
-    end = fields.Datetime('Ends',required=True, autodate = True)
-    capacity = fields.Integer("Capacity")
-    activityType = fields.Selection([('dance','Dance'),
+    name = fields.Char(string="Nombre de la clase", required=True, help="Nombre de la clase")
+    description = fields.Text(string="Descripción de la clase")
+    start = fields.Datetime('Inicio',required=True, autodate = True)
+    end = fields.Datetime('Fin',required=True, autodate = True)
+    capacity = fields.Integer("Capacidad")
+    activityType = fields.Selection([('dance','Baile'),
         ('aerobic','Aerobic'),
-        ('anaerobic','Anaerobic'),
+        ('anaerobic','Anaerobico'),
         ('relax','Relax'),],
-        'Type of activity')
+        'Tipo de actividad')
+    
+    users_ids = fields.Many2many("gym.users",string="Usuarios apuntados")
