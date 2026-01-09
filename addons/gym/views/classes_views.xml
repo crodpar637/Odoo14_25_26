@@ -50,13 +50,120 @@
       </tree>
     </field>
   </record>
+  <record id="gym_classes_kanban_view" model="ir.ui.view">
+    <field name="name">gym.classes.kanban</field>
+    <field name="model">gym.classes</field>
+    <field name="arch" type="xml">
+      <kanban class="o_kanban_small_column">
+        <!-- Campos que el kanban necesita cargar -->
+        <field name="name"/>
+        <field name="capacity"/>
+        <field name="start"/>
+        <field name="end"/>
+        <field name="activityType"/>
+        <field name="users_ids"/>
+
+        <templates>
+          <t t-name="kanban-box">
+            <div class="oe_kanban_global_click o_kanban_card">
+              <div class="o_kanban_card_header">
+                <strong>
+                  <field name="name"/>
+                </strong>
+              </div>
+
+              <div class="o_kanban_card_content">
+                <div>
+                  <strong>Actividad:</strong>
+                  <field name="activityType"/>
+                </div>
+
+                <div>
+                  <strong>Horario:</strong>
+                  <field name="start"/>
+ –                  <field name="end"/>
+                </div>
+
+                <div>
+                  <strong>Capacidad:</strong>
+                  <field name="capacity"/>
+                </div>
+              </div>
+
+              <div class="o_kanban_card_footer">
+                <div>
+                  <strong>Usuarios:</strong>
+                  <field name="users_ids" widget="many2many_tags"/>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+
+  <record id="gym_classes_graph_view" model="ir.ui.view">
+    <field name="name">gym.classes.graph</field>
+    <field name="model">gym.classes</field>
+    <field name="arch" type="xml">
+      <graph string="Clases" type="bar">
+        <field name="name" />
+        <field name="capacity" />
+      </graph>
+    </field>
+  </record>
+
+  <record id="gym_classes_calendar_view" model="ir.ui.view">
+    <field name="name">gym.classes.calendar</field>
+    <field name="model">gym.classes</field>
+    <field name="arch" type="xml">
+      <calendar string="Clases" color="name" date_start="start" date_stop="end" mode="month">
+        <field name="name"/>
+      </calendar>
+    </field>
+  </record>
+
+  <record id="gym_classes_search_view" model="ir.ui.view">
+    <field name="name">gym.classes.search</field>
+    <field name="model">gym.classes</field>
+    <field name="arch" type="xml">
+      <search string="Busqueda">
+        <filter name="capacity_sup_10" string="Capacidad &gt; 10" domain="[('capacity','&gt;',10)]" />
+        <separator/>
+        <filter name="today" string="Hoy" domain="[('start','=',time.strftime('%%Y-%%m-%%d'))]"/>
+        <field name="description" />
+        <field name="name" />
+
+        <group expand="0" string="Group By">
+          <filter name="group_by_activity_type" string="Por tipo de actividad" context="{'group_by':'activityType'}"/>
+          <filter name="group_by_capacity" string="Por capacidad" context="{'group_by':'capacity'}"/>
+        </group>
+      </search>
+
+
+
+    </field>
+  </record>
+
 
   <record id="classes_list_action" model="ir.actions.act_window">
     <field name="name">Classes</field>
     <field name="res_model">gym.classes</field>
-    <field name="view_mode">tree,form</field>
+    <field name="view_mode">tree,form,graph,calendar,kanban</field>
     <field name="help" type="html">
       <p class="o_view_nocontent_smiling_face">Create the first class</p>
+    </field>
+    <!-- <field name="classes_search_id" ref="gym_classes_search_view"/> -->
+  </record>
+
+  <record id="classes_list_action_aerobic" model="ir.actions.act_window">
+    <field name="name">Classes de aerobic</field>
+    <field name="res_model">gym.classes</field>
+    <field name="view_mode">tree</field>
+    <field name="domain">
+      [('activityType', '=', 'aerobic'')]
     </field>
   </record>
 </odoo>

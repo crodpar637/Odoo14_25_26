@@ -7,5 +7,7 @@
         <!-- actions -->
         <menuitem name="Clases" id="classes_menu" parent="gym_menu" groups="group_gym_manager" action="classes_list_action"/>
         <menuitem name="Usuarios" id="users_menu" parent="gym_menu" groups="group_gym_manager" action="users_list_action"/>
+        <menuitem name="Clases de aerobic" id="classes_aerobic_menu" parent="gym_menu" groups="group_gym_manager" action="classes_list_action_aerobic"/>     
+    
     </data>
 </odoo>
