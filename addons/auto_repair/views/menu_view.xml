@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <!-- Top menu item -->
+
+        <menuitem name="Taller" id="auto_repair.menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Acciones" id="auto_repair.menu_1" parent="auto_repair.menu_root"/>
+
+        <!-- actions -->
+
+        <menuitem name="Mecanicos" id="auto_repair.menu_mecanicos" parent="auto_repair.menu_1" action="auto_repair.action_window_mechanic"/>
+
+        <!-- <menuitem name="Reparaciones" id="auto_repair.menu_reparaciones" parent="auto_repair.menu_1" action="auto_repair.action_server"/> -->
+    </data>
+</odoo>

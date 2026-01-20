@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="auto_repair.mechanic_tree">
+            <field name="name">Mecanicos</field>
+            <field name="model">auto_repair.mechanic</field>
+            <field name="arch" type="xml">
+                <tree string="Mecanicos">
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="employee_id"/>
+                    <field name="phone"/>
+                    <field name="photo" widget="image"/>
+                    <field name="status"/>
+                    <field name="num_repairs"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="auto_repair.mechanic_form">
+            <field name="name">Mecanicos</field>
+            <field name="model">auto_repair.mechanic</field>
+            <field name="arch" type="xml">
+                <form string="Mecanicos">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="employee_id"/>
+                            <field name="phone"/>
+                            <field name="photo" widget="image"/>
+                            <field name="status"/>
+                            <field name="num_repairs"/>
+                            <field name="repair_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="auto_repair.action_window_mechanic">
+            <field name="name">Mecanicos</field>
+            <field name="res_model">auto_repair.mechanic</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

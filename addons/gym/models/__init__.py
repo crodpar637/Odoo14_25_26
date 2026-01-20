@@ -2,3 +2,4 @@
 
 from . import classes
 from . import users
+from . import instructores

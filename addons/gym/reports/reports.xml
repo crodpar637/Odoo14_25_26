@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- E2. Esquema basico -->
+    <report id="action_gym_classes_report" string="Report" model="gym.classes" report_type="qweb-pdf" name="gym.gym_classes_template" />
+
+    <!-- E3 -->
+    <report id="report_users" string="User report PDF" model="gym.users" report_type="qweb-pdf" name="gym.report_user" />
+
+    <report id="report_users_html" string="User report HTML" model="gym.users" report_type="qweb-html" name="gym.report_user" />
+
+</odoo>
+    
