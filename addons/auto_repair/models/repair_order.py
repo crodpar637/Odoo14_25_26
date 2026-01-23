@@ -29,6 +29,6 @@ class repair_order(models.Model):
     mechanic_id = fields.Many2one(
         string='Mecánico',
         comodel_name='auto_repair.mechanic',
-        ondelete='restrict',
+        ondelete='restrict', required=True
     )
     

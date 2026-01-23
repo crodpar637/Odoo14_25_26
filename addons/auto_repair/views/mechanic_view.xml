@@ -10,7 +10,7 @@
                     <field name="employee_id"/>
                     <field name="phone"/>
                     <field name="photo" widget="image"/>
-                    <field name="status"/>
+                    <field name="status" widget="statusbar" />
                     <field name="num_repairs"/>
                 </tree>
             </field>
@@ -21,6 +21,11 @@
             <field name="model">auto_repair.mechanic</field>
             <field name="arch" type="xml">
                 <form string="Mecanicos">
+                    <header>
+                        <button name="btn_submit_to_active" string="Activar" type="object" class="oe_highlight" />
+                        <button name="btn_submit_to_inactive" string="Desactivar" type="object" class="oe_highlight" />
+                        <button name="btn_submit_to_on_break" string="Descansar" type="object" class="oe_highlight" />
+                    </header>
                     <sheet>
                         <group>
                             <field name="name"/>
@@ -28,7 +33,7 @@
                             <field name="employee_id"/>
                             <field name="phone"/>
                             <field name="photo" widget="image"/>
-                            <field name="status"/>
+                            <field name="status" widget="statusbar" />
                             <field name="num_repairs"/>
                             <field name="repair_ids"/>
                         </group>

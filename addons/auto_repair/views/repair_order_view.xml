@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="auto_repair.repair_order_tree">
+            <field name="name">Reparaciones</field>
+            <field name="model">auto_repair.repair_order</field>
+            <field name="arch" type="xml">
+                <tree string="Reparaciones">
+                    <field name="name"/>
+                    <field name="vehicle_plate"/>
+                    <field name="client_name"/>
+                    <field name="repair_date"/>
+                    <field name="cost"/>
+                    <field name="mechanic_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="auto_repair.repair_order_form">
+            <field name="name">Reparaciones</field>
+            <field name="model">auto_repair.repair_order</field>
+            <field name="arch" type="xml">
+                <form string="Reparaciones">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="vehicle_plate"/>
+                            <field name="client_name"/>
+                            <field name="repair_date"/>
+                            <field name="cost"/>
+                            <field name="mechanic_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="auto_repair.repair_order_graph">
+            <field name="name">Reparaciones</field>
+            <field name="model">auto_repair.repair_order</field>
+            <field name="arch" type="xml">
+
+                <graph string="Reparaciones por fecha" type="bar">
+                    <field type="row" name="repair_date" interval="day"/>
+                    <field type="col" name="mechanic_id" />
+                    <field type="measure" name="cost" />
+                </graph>
+
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="auto_repair.action_window_repair_order">
+            <field name="name">Reparaciones</field>
+            <field name="res_model">auto_repair.repair_order</field>
+            <field name="view_mode">tree,form,graph</field>
+        </record>
+    </data>
+</odoo>

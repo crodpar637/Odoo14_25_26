@@ -12,6 +12,6 @@
 
         <menuitem name="Mecanicos" id="auto_repair.menu_mecanicos" parent="auto_repair.menu_1" action="auto_repair.action_window_mechanic"/>
 
-        <!-- <menuitem name="Reparaciones" id="auto_repair.menu_reparaciones" parent="auto_repair.menu_1" action="auto_repair.action_server"/> -->
+        <menuitem name="Reparaciones" id="auto_repair.menu_reparaciones" parent="auto_repair.menu_1" action="auto_repair.action_window_repair_order"/>
     </data>
 </odoo>

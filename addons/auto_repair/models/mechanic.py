@@ -25,7 +25,10 @@ class mechanic(models.Model):
     
     status = fields.Selection(
         string='Estado',
-        selection=[('active', 'Activo'), ('inactive', 'Inactivo'), ('on-break', 'Descanso')]
+        selection=[('active', 'Activo'), 
+                   ('inactive', 'Inactivo'), 
+                   ('on-break', 'Descanso')],
+        default='active', readonly=True
     )
     
     num_repairs = fields.Integer(
@@ -41,4 +44,19 @@ class mechanic(models.Model):
     def _compute_num_repairs(self):
         for record in self:
             record.num_repairs = len(record.repair_ids)
+    
+    @api.constrains('repair_ids')
+    def _check_status(self):
+        for record in self:
+            if record.status == 'on-break':
+                raise models.ValidationError('No se pueden modificar las reparaciones asignadas un mecánico de vacaciones')
+            
+    def btn_submit_to_active(self):
+          self.write({'status':'active'})
+          
+    def btn_submit_to_inactive(self):
+          self.write({'status':'inactive'})
+
+    def btn_submit_to_on_break(self):
+          self.write({'status':'on-break'})
     

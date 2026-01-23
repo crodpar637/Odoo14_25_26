@@ -25,6 +25,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/mechanic_view.xml',
+        'views/repair_order_view.xml',
         'views/menu_view.xml',
     ],
     # only loaded in demonstration mode
