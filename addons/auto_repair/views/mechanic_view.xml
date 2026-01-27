@@ -25,6 +25,7 @@
                         <button name="btn_submit_to_active" string="Activar" type="object" class="oe_highlight" />
                         <button name="btn_submit_to_inactive" string="Desactivar" type="object" class="oe_highlight" />
                         <button name="btn_submit_to_on_break" string="Descansar" type="object" class="oe_highlight" />
+                        <button name="btn_submit_delete_all_repairs" type="object" string="Eliminar todas las reparaciones" class="btn-danger" confirm="¿Estás seguro de que deseas eliminar todas las reparaciones de este mecánico?" />
                     </header>
                     <sheet>
                         <group>

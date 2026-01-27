@@ -60,3 +60,27 @@ class mechanic(models.Model):
     def btn_submit_to_on_break(self):
           self.write({'status':'on-break'})
     
+    def btn_submit_delete_all_repairs(self):
+        self.ensure_one()
+
+        if not self.repair_ids:
+            raise UserError('Este mecánico no tiene reparaciones asignadas.')
+
+        # =====================================================
+        # OPCIÓN 1 : QUITAR LA RELACIÓN (5,)
+        # =====================================================
+        # No borra las reparaciones, solo elimina la relación
+        # poniendo mechanic_id = False en repair_order
+        # ATENCIÓN: Como mechanic_id es required esta opción NO ES VÁLIDA
+        # Descomentar esta línea y comentar unlink() si se desea
+        #
+        # self.write({'repair_ids': [(5,)]})
+
+        # =====================================================
+        # OPCIÓN 2 (ALTERNATIVA): BORRAR LAS REPARACIONES (unlink)
+        # =====================================================
+        # Elimina físicamente los registros de repair_order
+        # de la base de datos
+        self.repair_ids.unlink()
+
+        
