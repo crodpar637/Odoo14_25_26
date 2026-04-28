@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+
+        <!--tree-->
+        <record model="ir.ui.view" id="love_match.match_user_tree">
+            <field name="name">MatchUser</field>
+            <field name="model">love_match.match_user</field>
+            <field name="arch" type="xml">
+                <tree string="MatchUser">
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="age"/>
+                    <field name="gender" widget="statusbar" />
+                    <field name="photo" widget="image"/>
+                    <field name="biography"/>
+                    <field name="status" widget="statusbar" />
+                    <field name="num_appointments"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--FORM-->
+        <record model="ir.ui.view" id="love_match.match_user_form">
+            <field name="name">MatchUser</field>
+            <field name="model">love_match.match_user</field>
+            <field name="arch" type="xml">
+                <form string="MatchUser">
+                    <header>
+                        <button name="btn_submit_to_active" string="Activar" type="object" class="oe_highlight" />
+                        <button name="btn_submit_to_on_break" string="Descansar" type="object" class="oe_highlight" />
+                        <button name="btn_submit_to_banned" string="Banned" type="object" class="oe_highlight" />
+                        <button name="btn_submit_delete_all_repairs" type="object" string="Eliminar todas las solicitudes" class="btn-danger" confirm="¿Estás seguro de que deseas eliminar estas solicitudes?" />
+                    </header>
+                    <sheet>
+                        <group>
+                             <field name="name"/>
+                            <field name="email"/>
+                            <field name="age"/>
+                            <field name="gender" widget="statusbar" />
+                            <field name="photo" widget="image"/>
+                            <field name="biography"/>
+                            <field name="status" widget="statusbar" />
+                            <field name="num_appointments"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="love_match.action_window_match_user">
+            <field name="name">MatchUser</field>
+            <field name="res_model">love_match.match_user</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

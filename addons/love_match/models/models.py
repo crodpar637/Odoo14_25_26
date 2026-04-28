@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class restaurante(models.Model):
-#     _name = 'restaurante.restaurante'
-#     _description = 'restaurante.restaurante'
+# class love_match(models.Model):
+#     _name = 'love_match.love_match'
+#     _description = 'love_match.love_match'
 
 #     name = fields.Char()
 #     value = fields.Integer()

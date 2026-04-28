@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_love_match_match_user,access_love_match_match_user,model_love_match_match_user,base.group_user,1,1,1,1
+access_love_match_match_appointment,access_love_match_match_appointment,model_love_match_match_appointment,base.group_user,1,1,1,1

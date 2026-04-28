@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="love_match.match_appointment_tree">
+            <field name="name">Appointments</field>
+            <field name="model">love_match.match_appointment</field>
+            <field name="arch" type="xml">
+                <tree string="Appointments">
+                    
+                    <field name="scheduled_datetime"/>
+                    <field name="location"/>
+                    <field name="status" widget="statusbar" />
+                    <field name="notes"/>
+                    <!-- <field name="num_appointments"/> -->
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="love_match.match_appointment_form">
+            <field name="name">Appointments</field>
+            <field name="model">love_match.match_appointment</field>
+            <field name="arch" type="xml">
+                <form string="Appoinments">
+                    <sheet>
+                        <group>
+                            <field name="scheduled_datetime"/>
+                            <field name="location"/>
+                            <field name="status" widget="statusbar" />
+                            <field name="notes"/>
+                            <!-- <field name="num_appointments"/> -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record model="ir.actions.act_window" id="auto_repair.action_window_match_appointment">
+            <field name="name">Appointments</field>
+            <field name="res_model">love_match.match_appointment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
